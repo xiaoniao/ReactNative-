@@ -1,0 +1,138 @@
+ReactNative
+
+React Native 是什么？
+
+  1、使用 React 来创建 Native 的应用。
+  2、learn once, write anywhere 可以实现「web andorid iOS」。
+
+React 是什么？
+  
+  1、使用 javaScript 的UI框架
+
+React Native 会涉及到什么知识点？
+  
+  1、React 需要你会使用React
+  2、
+  3、
+
+React Native 在android平台上的原理是什么？是webView？ 还是一套规则解析成 Native 控件？
+
+React Native 使用的版本限制是什么？
+
+React Native 的开源协议是什么？能否在商业项目中使用？
+
+React Native 源代码分析的结果是什么？
+
+React Native 是怎么编写的？js？
+
+如何针对 Native 的单个页面实施 React Native？
+
+
+
+
+----------------------------------------------------------------------------------------------------------------------------------------------
+
+GUIDE
+
+一、环境要求
+
+  1、OS X
+  2、Watchman
+        facebook 的一个开源项目，它开源用来监视文件并且记录文件的改动情况，当文件变更它可以触发一些操作,例如执行一些命令等等。
+  3、Flow
+  		JavaScript静态类型检查器,静态类型提供了一些极大的助益，如前期错误检测，它可以帮助您避免某些种运行时故障；如代码的智能提示，这有助于代码维护、导航、转换和优化。
+  4、Node.js
+  		一个服务端
+  5、iOS
+    1、Xcode7.0 or higher
+  6、android
+    1、需要有 androi SDK
+    2、添加环境变量
+		On Mac, add this to your ~/.bashrc, ~/.bash_profile 
+		# If you installed the SDK via Homebrew, otherwise ~/Library/Android/sdk
+		export ANDROID_HOME=/usr/local/opt/android-sdk
+		export ANDROID_HOME=~/Library/Android/sdk
+
+二、快速开始
+
+  1、安装ReactNative本地执行环境命令 npm install -g react-native-cli(后续的操作都是要靠它)
+  2、使用ReactNative命令初始化一个ReactNative项目 react-native init AwesomeProject(名字可以任意取)
+  3、iOS
+       1.进入项目目录
+       2.点击ios/AwesomeProject.xcodeproj打开Xcode编辑环境
+       3.编辑index.ios.js（ReactNative的代码在这里面写，这里是主文件）
+       4.点击⌘-R查看更改效果
+  4、android
+       1.进入项目目录
+       2.执行命令 react-native run-android ？这里再干什么难道是编辑gradle?
+       3.编辑index.android.js（ReactNative的代码在这里面写，这里是主文件）
+       4.打开手机或者模拟器的菜单键选择重新加载js
+       5.查看logo adb logcat *:S ReactNative:V ReactNativeJS:V
+
+三、在ReactNative项目中添加android支持（对于之前iOS程序员)
+
+  1、更新依赖文件 package.json 到最新版（https://www.npmjs.com/package/react-native）
+  2、npm install
+  3、react-native android
+
+--------------------------
+ps.上面是创建一个项目的过程
+--------------------------
+
+四、命令解析
+
+  1、npm install -g react-native-cli
+
+	ReactNative的命令行
+
+  2、react-native init AwesomeProject(名字可以任意取)
+
+  	创建一个项目并生成ReactNative的一些依赖，iOS是xcodeproj, android是Gradle文件
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,115 @@
+ReactNative - 案例
+
+前言：
+  1、这篇文章是为了让你快速使用ReactNative来编写一个项目(前面的文章是告诉你怎么创建一个项目)
+  2、为什么facebook要造这么一个费劲的转换库（https://code.facebook.com/posts/1014532261909640/react-native-bringing-modern-web-techniques-to-mobile/）
+  3、这里需要React的知识（http://facebook.github.io/react/）
+
+创建项目：
+  参见前面的文章（react-native init 你的项目名字）
+
+运行项目：
+  执行命令 react-native run-android
+  	1、打开模拟器并运行项目
+    2、启动Node服务器，就可以实现代码实时更新（会弹出一个新的terminal窗口）
+ 
+  注意：
+    1、运行项目前，先插上手机或者打开模拟器
+    2、设置环境变量
+
+调试：
+   1、F10打开设置页面设置自动刷新
+      Dev Settings -> Auto reload on JS change
+
+   2、显示logo日志
+     adb logcat *:S ReactNative:V ReactNativeJS:V
+
+编写代码：
+  我们会创建一个ListView上面显示25个电影
+
+1、创建虚拟数据(推荐写到js的顶部require的下面)
+  var MOCKED_MOVIES_DATA = [
+    {title: 'Title', year: '2015', posters: {thumbnail: 'http://i.imgur.com/UePbdph.jpg'}},
+  ];
+  // 这是一个数组
+
+2、我们要显示『标题』『年份』『图片』，图片和文字一样都是组件，所以也需要把图片组件加上去
+    var {
+      AppRegistry,
+      Image,
+      StyleSheet,
+      Text,
+      View,
+    } = React;
+
+  要更新显示的内容，我们需要替换render: function()函数里面的内容
+
+    var movie = MOCKED_MOVIES_DATA[0];
+    return (
+      <View style={styles.container}>
+        <Text>{movie.title}</Text>
+        <Text>{movie.year}</Text>
+        <Image source={{uri: movie.posters.thumbnail}} />
+      </View>
+    );
+
+  现在可以显示『标题』和『年份』了，但是还没有图片，因为还没有给图片设置样式
+
+  修改样式
+  var styles = StyleSheet.create({
+    container: {
+      //flex: 1,
+      //justifyContent: 'center',
+      //alignItems: 'center',
+      //backgroundColor: '#F5FCFF',
+       flex: 1,
+       flexDirection: 'row',
+       justifyContent: 'center',
+       alignItems: 'center',
+       backgroundColor: '#F5FCFF',
+    },
+    thumbnail: {
+      width: 53,
+      height: 81,
+    },
+  });
+
+  现在还是不能显示出来图片，因为还没有给图片组件设置样式，现在给图片设置样式
+
+  <Image
+        source={{uri: movie.posters.thumbnail}}
+        style={styles.thumbnail}
+  />
+
+  现在就可以显示出来图片了
+
+--------------------------
+ps.组件很容易理解，其实跟 android 差不多,<View> </View> 是容器 <Text> 是文本 <Image><Image> 是图片
+   样式采用的CSS-layout
+   FlexBox （https://css-tricks.com/snippets/css/a-guide-to-flexbox/）
+--------------------------
+
+如果要显示这样的样式怎么设置
++---------------------------------+
+|+-------++----------------------+|
+||       ||        Title         ||
+|| Image ||                      ||
+||       ||        Year          ||
+|+-------++----------------------+|
++---------------------------------+
+
+--------------------------
+ps.样式这块我也不是很懂，先略过
+--------------------------
+
+如何获得真正的数据？
+
+使用ListView显示数据
+
+
+
+
+
+
+
+
